@@ -61,7 +61,6 @@ func main() {
 	sa2.speak()
 
 	fmt.Println(p1)
-
 	bar(sa1)
 	bar(sa2)
 	bar(p1)
