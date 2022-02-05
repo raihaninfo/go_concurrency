@@ -11,6 +11,7 @@ var urls = []string{
 	"https://facebook.com",
 	"https://twitter.com",
 	"https://github.com",
+	"https://w3schools.com/",
 }
 
 var wg sync.WaitGroup
