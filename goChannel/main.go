@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 // data := <- a // read from channel
 // a <- data // write to channel
@@ -14,7 +18,8 @@ func main() {
 
 	go func() {
 		for i := 0; i < 100; i++ {
-			a <- i // write to channel
+			result := doWork()
+			a <- result
 		}
 		close(a)
 	}()
@@ -22,4 +27,9 @@ func main() {
 	for data := range a {
 		fmt.Println(data)
 	}
+}
+
+func doWork() int {
+	time.Sleep(time.Second)
+	return rand.Intn(100)
 }
