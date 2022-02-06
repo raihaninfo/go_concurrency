@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// data := <- a // read from channel
+// a <- data // write to channel
 func main() {
 	var a chan int
 	if a == nil {
@@ -12,7 +14,7 @@ func main() {
 
 	go func() {
 		for i := 0; i < 100; i++ {
-			a <- i
+			a <- i // write to channel
 		}
 	}()
 
