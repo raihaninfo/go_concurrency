@@ -5,10 +5,10 @@ import "fmt"
 // data := <- a // read from channel
 // a <- data // write to channel
 func main() {
-	var a chan int
+	// var a chan int
+	a := make(chan int)
 	if a == nil {
 		fmt.Println("channel a is nil")
-		a = make(chan int)
 		fmt.Printf("Type of a is %T\n", a)
 	}
 
@@ -16,6 +16,7 @@ func main() {
 		for i := 0; i < 100; i++ {
 			a <- i // write to channel
 		}
+		close(a)
 	}()
 
 	for data := range a {
