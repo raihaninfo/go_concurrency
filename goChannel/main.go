@@ -21,7 +21,7 @@ func main() {
 		wg := sync.WaitGroup{}
 		for i := 0; i < 100; i++ {
 			wg.Add(1)
-			func() {
+			go func() {
 				defer wg.Done()
 				result := doWork()
 				a <- result
